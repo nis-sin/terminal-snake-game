@@ -1,0 +1,1 @@
+A Terminal snake game I created for a challenge to myself. I didn't want to use any GUI libraries like pygame or Tkinter.
