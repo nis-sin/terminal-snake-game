@@ -2,6 +2,7 @@ from collisionDetection import *
 from displayScreen import *
 from movement import move, movementKeyDetect
 from os import system
+import sys
 from concurrent.futures import ThreadPoolExecutor # for detecting key presses asynchronously
 from time import sleep
 
@@ -41,7 +42,8 @@ while run:
     if not (collision_with_wall(breadth, height, dictParts['O']) or collision_with_self(dictParts)):
 
         count += 1
-        system('cls')
+        sys.stdout.write(u"\u001b[2J") # clear screen
+        sys.stdout.write(u"\u001b[H")  # Cursor up one line
         #move(dictParts, movementData)
         printGrid(grid, dictParts, breadth, height)
 

@@ -12,6 +12,7 @@ f'{x:~^{n}}' -> '~~~test~~~'
 n = length of string, len(string) can never > n
 '''
 
+import sys
 from os import system
 from random import randint
 from keyboard import read_key
@@ -99,7 +100,8 @@ def startGameScreen():
         Ready? Y/N
         \n\n\n""")
         response = read_key().lower()
-        system('cls')
+        sys.stdout.write(u"\u001b[2J") # clear screen
+        sys.stdout.write(u"\u001b[H")  # Cursor up one line
 
     if response == 'y':
         for i in range(3,0,-1):
@@ -118,6 +120,7 @@ def endGameScreen():
         \t\t\tRestart game? Y/N
         \n\n\n""")
         response = read_key().lower()
-        system('cls')
+        sys.stdout.write(u"\u001b[2J") # clear screen
+        sys.stdout.write(u"\u001b[H")  # Cursor up one line
 
     return response == 'y'
